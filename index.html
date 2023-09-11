@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ビークルエッセ気づき連絡アプリ</title>
+    <style>
+        .x{
+            border: 3px dotted red;
+            padding: 10px;
+            text-align:center;
+        }
+
+	span{
+	color:red;
+	font-weight:bold;
+	font-size:20px;
+       }
+	
+	
+    </style>
+</head>
+<body>
+    <h2>アクロスモール春日清掃気づき報告</h2>
+    <div class="x">
+	<span>入力エリア</span>
+        日時⇒ <input type="datetime-local" id="date">に
+        場所⇒ <input type="text" id="place">で
+        何があったか⇒ <input type="text" id="mondai">のトラブルに気づきました。
+        どう対処したか⇒ <input type="text" id="taisyo">をして対応済です。対応したスタッフは、
+         <select name="" id="shift">
+            <option value="">シフト名</option>
+            <option value="Aシフト">Aシフト</option>
+            <option value="Bシフト">Bシフト</option>
+            <option value="Cシフト">Cシフト</option>
+            <option value="Dシフト">Dシフト</option>
+            <option value="Eシフト">Eシフト</option>
+            <option value="Fシフト">Fシフト</option>
+            <option value="Gシフト">Gシフト</option>
+            <option value="Hシフト">Hシフト</option>
+        </select>シフトの
+        <select name="" id="staf">
+            <option value="">スタッフ名</option>
+            <option value="大石">大石</option>
+            <option value="小田">小田</option>
+            <option value="深川">深川</option>
+            <option value="八尋">八尋</option>
+            <option value="大隣">大隣</option>
+            <option value="池永">池永</option>
+            <option value="寺崎">寺崎</option>
+            <option value="蓮田">蓮田</option>
+            <option value="大武">大武</option>
+            <option value="小笠原">小笠原</option>
+            <option value="一力">一力</option>
+            <option value="村瀬">村瀬</option>
+            <option value="國廣">國廣</option>
+            <option value="渡辺">渡辺</option>
+        </select>です。
+        <button onclick="A()">追加</button>
+        <button onclick="P()">PDF</button>
+        <button onclick="C()">クリア</button>
+    </div>
+    <ol id="out">気づき報告一覧
+
+    </ol>
+
+    <script>
+        function A(){
+            const shift = document.getElementById("shift").value;
+            const staf = document.getElementById("staf").value;
+            const date = document.getElementById("date").value;
+            const place = document.getElementById("place").value;
+            const mondai = document.getElementById("mondai").value;
+            const taisyo = document.getElementById("taisyo").value;
+           
+            if (shift != "" && staf != "" && date != "" && mondai != "" && taisyo !=""){
+                const li = document.createElement("li");
+                li.textContent = `${date}に、${place}で、${mondai}のトラブルに気づきました。${taisyo}して対応済です。対応したスタッフは、${shift}の${staf}です。`;
+                document.getElementById("out").appendChild(li);
+
+                document.getElementById("staf").value = "";
+                document.getElementById("date").value = "";
+                document.getElementById("place").value = "";
+                document.getElementById("mondai").value = "";
+                document.getElementById("taisyo").value = "";
+                document.getElementById("shift").value = "";
+            }
+        }
+
+        function P(){
+            window.print();
+        }
+
+        function C(){
+            location.reload();
+        }
+    </script>
+</body>
+</html>
