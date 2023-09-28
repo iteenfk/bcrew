@@ -1,99 +1,137 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ビークルエッセ気づき連絡アプリ</title>
-    <style>
-        .x{
-            border: 3px dotted red;
-            padding: 10px;
-            text-align:center;
-        }
+<style>
+.form {
+    width: 500px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color:lightyellow;
+    margin:auto;
+}
 
-	span{
-	color:red;
-	font-weight:bold;
-	font-size:20px;
-       }
-	
-	
-    </style>
+table{
+border-collapse:collaps;
+}
+
+#table_id{
+margin:auto;
+}
+
+#table_id th{
+    background-color:lightblue;
+    font-size: 15px;
+    border: 1px solid black;
+    
+}
+#table_id td {
+    font-size: 15px;
+    border: 1px solid black;
+   
+}
+
+textarea {
+  resize: none;
+  width:300px;
+  height:50px;
+}
+</style>
 </head>
+
 <body>
-    <h2>アクロスモール春日清掃気づき報告</h2>
-    <div class="x">
-	<span>入力エリア</span>
-        日時⇒ <input type="datetime-local" id="date">に
-        場所⇒ <input type="text" id="place">で
-        何があったか⇒ <input type="text" id="mondai">のトラブルに気づきました。
-        どう対処したか⇒ <input type="text" id="taisyo">をして対応済です。対応したスタッフは、
-         <select name="" id="shift">
-            <option value="">シフト名</option>
-            <option value="Aシフト">Aシフト</option>
-            <option value="Bシフト">Bシフト</option>
-            <option value="Cシフト">Cシフト</option>
-            <option value="Dシフト">Dシフト</option>
-            <option value="Eシフト">Eシフト</option>
-            <option value="Fシフト">Fシフト</option>
-            <option value="Gシフト">Gシフト</option>
-            <option value="Hシフト">Hシフト</option>
-        </select>シフトの
-        <select name="" id="staf">
-            <option value="">スタッフ名</option>
-            <option value="大石">大石</option>
-            <option value="小田">小田</option>
-            <option value="深川">深川</option>
-            <option value="八尋">八尋</option>
-            <option value="大隣">大隣</option>
-            <option value="池永">池永</option>
-            <option value="寺崎">寺崎</option>
-            <option value="蓮田">蓮田</option>
-            <option value="大武">大武</option>
-            <option value="小笠原">小笠原</option>
-            <option value="一力">一力</option>
-            <option value="村瀬">村瀬</option>
-            <option value="國廣">國廣</option>
-            <option value="渡辺">渡辺</option>
-        </select>です。
-        <button onclick="A()">追加</button>
-        <button onclick="P()">PDF</button>
-        <button onclick="C()">クリア</button>
-    </div>
-    <ol id="out">気づき報告一覧
+<div class="form">
+   
+        【入力欄】アクロスモール春日気づき報告
+        <br><br>
+        シフト名：
+             <select id="shift_id">
+                <option value="">シフト名</option>
+                <option value="Aシフト">Aシフト</option>
+                <option value="Bシフト">Bシフト</option>
+                <option value="Cシフト">Cシフト</option>
+                <option value="Dシフト">Dシフト</option>
+                <option value="Eシフト">Eシフト</option>
+                <option value="Fシフト">Fシフト</option>
+                <option value="Gシフト">Gシフト</option>
+                <option value="Hシフト">Hシフト</option>
+                
+            </select>
+        名前：
+            <select id="name_id">
+                <option value="">名前</option>
+                <option value="大石">大石</option>
+                <option value="小田">小田</option>
+                <option value="深川">深川</option>
+                <option value="八尋">八尋</option>
+                <option value="大隣">大隣</option>
+                <option value="寺崎">寺崎</option>
+                <option value="蓮田">蓮田</option>
+                <option value="池永">池永</option>
+                <option value="小笠原">小笠原</option>
+                <option value="大武">大武</option>
+                <option value="一力">一力</option>
+                <option value="村瀬">村瀬</option>
+                <option value="國廣">國廣</option>
+                <option value="渡辺">渡辺</option>
+                
+            </select>
+            <br>
+        時間  : <input type="time" id="time_id">
+        場所 ：<input type="text" placeholder="どこで" id="place_id">
+        <br><br>
+        なにがあったか：<textarea id="come1_id" placeholder="なにがあったか"></textarea>
+        <br>
+        どう対応したか：<textarea id="come2_id" placeholder="どう対応したか"></textarea>
+        <br><br>
+   
+    <button onclick="Add()">追加</button>
+    <button onclick="Pdf()">PDF</button>
+</div>
+<table id="table_id">
+    <tr>
+        <th>シフト名</th>  
+        <th>名前</th>
+        <th>時間</th>
+        <th>場所</th>
+        <th>なにがあった</th>
+        <th>どう対応した</th>
+    </tr>
+</table>
+<script>
+function Add() {
+    const shift = document.getElementById("shift_id").value;
+    const name = document.getElementById("name_id").value;
+    const time = document.getElementById("time_id").value;
+    const place = document.getElementById("place_id").value;
+    const come1 = document.getElementById("come1_id").value;
+    const come2 = document.getElementById("come2_id").value;
+    const table = document.getElementById("table_id");
+    if (shift != "" && name != "" && time != "" && place != "" && come1 != "" && come2 != ""){
+    let tr = "<tr>";
+    tr += `<td>${shift}</td>`;
+    tr += `<td>${name}</td>`;
+    tr += `<td>${time}</td>`;
+    tr += `<td>${place}</td>`;
+    tr += `<td>${come1}</td>`;
+    tr += `<td>${come2}</td>`;
+    tr += "</tr>";
+    table.insertAdjacentHTML("beforeend", tr);
 
-    </ol>
+    // フォームをクリア
+    document.getElementById("shift_id").value = "";
+    document.getElementById("name_id").value = "";
+    document.getElementById("time_id").value = "";
+    document.getElementById("place_id").value = "";
+    document.getElementById("come1_id").value = "";
+    document.getElementById("come2_id").value = "";
+   }
+}
 
-    <script>
-        function A(){
-            const shift = document.getElementById("shift").value;
-            const staf = document.getElementById("staf").value;
-            const date = document.getElementById("date").value;
-            const place = document.getElementById("place").value;
-            const mondai = document.getElementById("mondai").value;
-            const taisyo = document.getElementById("taisyo").value;
-           
-            if (shift != "" && staf != "" && date != "" && mondai != "" && taisyo !=""){
-                const li = document.createElement("li");
-                li.textContent = `${date}に、${place}で、${mondai}のトラブルに気づきました。${taisyo}して対応済です。対応したスタッフは、${shift}の${staf}です。`;
-                document.getElementById("out").appendChild(li);
-
-                document.getElementById("staf").value = "";
-                document.getElementById("date").value = "";
-                document.getElementById("place").value = "";
-                document.getElementById("mondai").value = "";
-                document.getElementById("taisyo").value = "";
-                document.getElementById("shift").value = "";
-            }
-        }
-
-        function P(){
-            window.print();
-        }
-
-        function C(){
-            location.reload();
-        }
-    </script>
+function Pdf(){
+    window.print();
+}
+</script>
 </body>
 </html>
