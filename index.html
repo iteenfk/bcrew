@@ -3,7 +3,7 @@
 <head>
 <style>
 .form {
-    width: 500px;
+    width: 400px;
     padding: 10px;
     border: 2px solid black;
     border-radius: 10px;
@@ -34,7 +34,7 @@ margin:auto;
 
 textarea {
   resize: none;
-  width:300px;
+  width:380px;
   height:50px;
 }
 </style>
@@ -47,7 +47,7 @@ textarea {
         <br><br>
         シフト名：
              <select id="shift_id">
-                <option value="">シフト名</option>
+                <option value="">シフト名選択</option>
                 <option value="Aシフト">Aシフト</option>
                 <option value="Bシフト">Bシフト</option>
                 <option value="Cシフト">Cシフト</option>
@@ -60,7 +60,7 @@ textarea {
             </select>
         名前：
             <select id="name_id">
-                <option value="">名前</option>
+                <option value="">名前選択</option>
                 <option value="大石">大石</option>
                 <option value="小田">小田</option>
                 <option value="深川">深川</option>
@@ -80,7 +80,7 @@ textarea {
             <br>
         時間  : <input type="time" id="time_id">
         場所 ：<select id="place_id">
-                <option value="">場所</option>
+                <option value="">場所選択</option>
                 <option value="南側1F男子トイレ">南側1F男子トイレ</option>
                 <option value="南側1F女子トイレ">南側1F女子トイレ</option>
                 <option value="南側1F多目的トイレ">南側1F多目的トイレ</option>
@@ -108,19 +108,66 @@ textarea {
                 <option value="正面玄関風除室">正面玄関風除室</option>
                 <option value="北側風除室">北側風除室</option>
                 <option value="1F共有通路">1F共有通路</option>
-　　　　　　　　   <option value="2F共有通路">2F共有通路</option>
+　　　　　　　　  <option value="2F共有通路">2F共有通路</option>
+                <option value="1F赤ES上り">1F赤ES上り</option>
+　　　　　　　　　<option value="1F赤ES下り">1F赤ES下り</option>
+　　　　　　　　　 <option value="2F赤ES上り">2F赤ES上り</option>
+　　　　　　　　　<option value="2F赤ES下り">2F赤ES下り</option>
+                                 <option value="3F赤ES上り">3F赤ES上り</option>
+　　　　　　　　　<option value="3F赤ES下り">3F赤ES下り</option>
+　　　　　　　　　<option value="3F赤ESホール">3F赤ESホール</option>　　　　
+　　　　　　　　　 <option value="4F赤ES上り">4F赤ES上り</option>
+　　　　　　　　　<option value="4F赤ES下り">4F赤ES下り</option>
+　　　　　　　　　<option value="4F赤ESホール">4F赤ESホール</option>
+                                  <option value="RF赤ES上り">RF赤ES上り</option>
+　　　　　　　　　<option value="RF赤ES下り">RF赤ES下り</option>
+                 <option value="RF赤ESホール">RF赤ESホール</option>
+                                  <option value="1F青ES上り">1F青ES上り</option>
+　　　　　　　　　<option value="1F青ES下り">1F青ES下り</option>
+　　　　　　　　　 <option value="2F青ES上り">2F青ES上り</option>
+　　　　　　　　　<option value="2F青ES下り">2F青ES下り</option>
+                                 <option value="3F青ES上り">3F青ES上り</option>
+　　　　　　　　　<option value="3F青ES下り">3F青ES下り</option>
+　　　　　　　　　<option value="3F青ESホール">3F青ESホール</option>　
+　　　　　　　　　 <option value="4F青ES上り">4F青ES上り</option>
+　　　　　　　　　<option value="4F青ES下り">4F青ES下り</option>
+                 <option value="4F青ESホール">4F青ESホール</option>　
+                                  <option value="RF青ES上り">RF青ES上り</option>
+　　　　　　　　　<option value="RF青ES下り">RF青ES下り</option>
+                 <option value="RF青ESホール">RF青ESホール</option>　
+                                 <option value="1F緑ES上り">1F緑ES上り</option>
+　　　　　　　　　<option value="1F緑ES下り">1F緑ES下り</option>
+                                 <option value="1F東側EVホール">1F東側EVホール</option>    
+                 <option value="2F東側EVホール">2F東側EVホール</option>    
+                 <option value="3F東側EVホール">3F東側EVホール</option>    
+                 <option value="4F東側EVホール">4F東側EVホール</option>              
+                 <option value="RF東側EVホール">RF東側EVホール</option> 
+                 <option value="1F西側EVホール">1F西側EVホール</option>    
+                 <option value="2F西側EVホール">2F西側EVホール</option>    
+                 <option value="3F西側EVホール">3F西側EVホール</option>    
+                 <option value="4F西側EVホール">4F西側EVホール</option>              
+                 <option value="RF西側EVホール">RF西側EVホール</option>
+                 <option value="正面玄関階段">正面玄関階段</option>
+                 <option value="中央螺旋階段">中央螺旋階段</option>
+　　　　　　　　　 <option value="北側螺旋階段">北側螺旋階段</option>　　　　　    
                 <option value="その他">その他</option>
 
 
             </select>
-        <br><br>
-        なにがあったか：<textarea id="come1_id" placeholder="なにがあったか"></textarea>
         <br>
-        どう対応したか：<textarea id="come2_id" placeholder="どう対応したか"></textarea>
-        <br><br>
-   
-    <button onclick="Add()">追加</button>
-    <button onclick="Pdf()">PDF</button>
+        なにがあったか：<br><textarea id="come1_id" placeholder="なにがあったか"></textarea>
+        <br>
+        どう対応したか：
+               <select id="come2_id">
+                <option value="">対応選択</option>
+                <option value="回収して完了です。">回収して完了です。</option>
+　　　　　　　　  <option value="清掃して完了です。">清掃して完了です。</option>
+　　　　　　　　  <option value="防災センターに連絡して対応済です。">防災センターに連絡して対応済です。</option>
+               <option value="その他">その他</option>
+            </select>
+    <br>
+    <button onclick="Add()">書き込む</button>
+    <button onclick="Pdf()">PDFでLINEに送る</button>
 </div>
 <table id="table_id">
     <tr>
